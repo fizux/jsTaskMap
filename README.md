@@ -17,3 +17,20 @@ jsTaskPlan has been tested in the following browsers:
 *Microsoft Edge
 * Internet Explorer 11
 
+<hr/>
+
+**Docker**<br/>
+You must obtain a Google Maps API token for this to work.
+A token may be obtained here:  https://developers.google.com/maps/documentation/javascript/get-api-key
+
+The container expects that you will set the `gmaps_api_token` environment variable, which may be done in the Dockerfile,
+in the `docker run` command with `-e / --env` options, or in the docker-compose.yaml file.
+
+Be advised that if you expose this to a public facing port, without authentication, anyone on the internet can run up
+your token's traffic count that is tied to your credit card. The authors are not responsible for the charges as a result
+of your decision to provide the use of your token to the entire soaring community.
+
+_HTTPS and SSL/TLS certificates_<br/>
+The usual use case of this project is behind a reverse proxy that handles all the SSL stuff. 
+A simple way to get started is with https://hub.docker.com/r/jwilder/nginx-proxy and obtain a letsencrypt certificate
+for your domain.

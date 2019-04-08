@@ -3,13 +3,15 @@ $version=strtolower($_GET['version']);
 if(empty($version)) {
 header('Location: index.html');
 }
+$api = getenv('gmaps_api_token');
+$gmap_api_src = '"https://maps.googleapis.com/maps/api/js?key='.$api.'"';
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8" />
  <title>Soaring task planner</title>
-<script  src="https://maps.googleapis.com/maps/api/js?key=SECRET"></script>
+<script  src=<?php echo $gmap_api_src; ?>></script>
 <script src="lib/infobox.js"></script>
 <script src="lib/jquery-2.1.3.min.js"></script>
 <script  src="geocalc.js"></script>
